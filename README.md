@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greentek Field Applications</title>
+
+  <style>
+    :root {
+      --bg: #f3f5f4;
+      --green-dark: #1f3f14;
+      --green-main: #2f5d1e;
+      --green-light: #5f7f3a;
+      --danger: #b91c1c;
+      --text-light: #ffffff;
+      --muted: #6b7280;
+      --radius: 18px;
+      --shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 42px;
+    }
+
+    header img {
+      max-height: 64px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--green-dark);
+    }
+
+    /* ===== SECTIONS ===== */
+    section { margin-bottom: 44px; }
+
+    section h2 {
+      margin-bottom: 16px;
+      font-size: 15px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    /* ===== BUTTON CARDS ===== */
+    .card {
+      border-radius: var(--radius);
+      padding: 26px;
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--text-light);
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+    }
+
+    .alt1 {
+      background: linear-gradient(135deg, var(--green-dark), var(--green-main));
+    }
+
+    .alt2 {
+      background: linear-gradient(135deg, var(--green-main), var(--green-light));
+    }
+
+    .danger {
+      background: linear-gradient(135deg, #dc2626, #7f1d1d);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 16px; }
+      header h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
+      alt="Greentek Logo"
+    />
+    <h1>Field Applications</h1>
+  </header>
+
+  <!-- FIELD OPERATIONS -->
+  <section>
+    <h2>Field Operations</h2>
+    <div class="grid">
+      <a class="card alt1" href="https://script.google.com/macros/s/AKfycbzQnnChpmUlvMVUASwEQHOR2Zmx_tOnwG4GflQh26meG6IpiISwEBjdmY7SokMrlUDeBw/exec" target="_blank">Field Daily Logs</a>
+      <a class="card alt2" href="https://script.google.com/macros/s/AKfycbzw2dawCfypfC8b4JD8fzJzAaVCW6-GpKN3Gls0Est5d0OAkwaTFYlrM_V7l7ugjgq4/exec" target="_blank">Truckee Daily Logs</a>
+      <a class="card alt1" href="https://script.google.com/macros/s/AKfycbwYQz3Ik_oi_hXpiD883UHs_BzjJAEAJZV_URC_ZTL4yw6y8yUtDzNGcS7YKHeaPTdM9A/exec" target="_blank">Supervisor Notification App</a>
+    </div>
+  </section>
+
+  <!-- SAFETY & COMPLIANCE -->
+  <section>
+    <h2>Safety & Compliance</h2>
+    <div class="grid">
+      <a class="card alt2" href="https://script.google.com/macros/s/AKfycbwUqnsNd7Hgy72oVx8Jpq8CjwKHvwWQNPnbaZvumQggncBQzPXX0zyXTtqh0KN18uCq_Q/exec" target="_blank">JSA</a>
+      <a class="card alt1" href="https://script.google.com/macros/s/AKfycbwKqa_3gjC-LJC8owM_-uNbYXAly_18uRAztroqg27vefOcJh8hE_aBxhWJWifMfTWg-A/exec" target="_blank">TRA</a>
+      <a class="card alt2" href="https://docs.google.com/forms/d/e/1FAIpQLSfi9wybW1bY_IFS-RzjXjjYluxVv9OKF9-qvwX6XmSXXBGhHQ/viewform" target="_blank">Safety Audit Form</a>
+      <a class="card alt1" href="https://docs.google.com/forms/d/e/1FAIpQLScTBqU7EL-qd8cI4yzOAgGNcljSLCfDjb9hTe9YMhHzijEyFw/viewform" target="_blank">Field Worker Violation</a>
+    </div>
+  </section>
+
+  <!-- WILDFIRE -->
+  <section>
+    <h2>Wildfire & Utility</h2>
+    <div class="grid">
+      <a class="card danger" href="https://script.google.com/macros/s/AKfycbyxLLe_nboVdufM5w6-2f8M8_WQgNiRygGv4dMGZ5OY9-zEUcHw5N3yyDrUvRaAxK7Y/exec" target="_blank">PG&E Wildfire Checklist</a>
+      <a class="card danger" href="https://script.google.com/macros/s/AKfycbz-wn1xQytNnJT3mRBFRuNLxEdjjV-KVGww4WhSJgVUKImMlmiv4bYzn9XXsK38EkW6/exec" target="_blank">Truckee Wildfire Checklist</a>
+    </div>
+  </section>
+
+</body>
+</html>
