@@ -13,20 +13,15 @@
       --panel-bg-bot: rgba(232, 241, 233, 0.88);
       --panel-border: rgba(31, 58, 26, 0.14);
 
-      --green-950: #122512;
-      --green-900: #1f3a1a;
-      --green-800: #2f5d1e;
-      --green-700: #4a7c36;
-
       --text: #1f2937;
       --muted: rgba(31, 58, 26, 0.70);
 
-      --radius: 18px;
       --shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
       --shadow-btn: 0 8px 16px rgba(0, 0, 0, 0.18);
       --shadow-btn-hover: 0 12px 22px rgba(0, 0, 0, 0.22);
 
       --focus: 0 0 0 4px rgba(74, 124, 54, 0.25);
+      --panel-radius: 22px;
     }
 
     * { box-sizing: border-box; }
@@ -46,10 +41,9 @@
         var(--page-bg);
     }
 
-    /* ===== MAIN CARD ===== */
     .panel {
       width: min(860px, 100%);
-      border-radius: 22px;
+      border-radius: var(--panel-radius);
       overflow: hidden;
       border: 1px solid var(--panel-border);
       box-shadow: var(--shadow);
@@ -57,7 +51,6 @@
       position: relative;
     }
 
-    /* soft green fade at bottom like the mock */
     .panel::after{
       content:"";
       position:absolute;
@@ -82,7 +75,6 @@
       display: block;
     }
 
-    /* Top area: light for logo */
     .hero-top {
       position: relative;
       z-index: 1;
@@ -93,7 +85,6 @@
       min-height: 62px;
     }
 
-    /* Bottom bar: darker for title */
     .hero-bar {
       position: relative;
       z-index: 1;
@@ -119,7 +110,6 @@
       letter-spacing: 0.2px;
     }
 
-    /* Your site logo (WebP) + fallback */
     .brand-logo {
       height: 38px;
       width: auto;
@@ -132,17 +122,12 @@
     /* ===== CONTENT ===== */
     .content {
       position: relative;
-      z-index: 1; /* above the panel bottom glow */
+      z-index: 1;
       padding: 16px 22px 26px;
     }
 
-    .group {
-      padding-top: 14px;
-    }
-
-    .group + .group {
-      margin-top: 10px;
-    }
+    .group { padding-top: 14px; }
+    .group + .group { margin-top: 10px; }
 
     .group-head {
       display: flex;
@@ -164,7 +149,6 @@
       background: rgba(31, 58, 26, 0.18);
     }
 
-    /* ===== BUTTON GRID ===== */
     .btn-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -177,7 +161,6 @@
       justify-content: center;
       text-align: center;
       min-height: 44px;
-
       padding: 12px 14px;
       border-radius: 10px;
 
@@ -189,7 +172,6 @@
       border: 1px solid rgba(255, 255, 255, 0.14);
       box-shadow: var(--shadow-btn);
 
-      /* “Green pill” like the mock */
       background: linear-gradient(
         180deg,
         rgba(74, 124, 54, 1) 0%,
@@ -216,7 +198,6 @@
     .btn:focus { outline: none; }
     .btn:focus-visible { box-shadow: var(--shadow-btn-hover), var(--focus); }
 
-    /* Optional variants (kept subtle so everything still matches the mock vibe) */
     .btn--alt {
       background: linear-gradient(
         180deg,
@@ -239,7 +220,10 @@
       background: linear-gradient(180deg, #3b434a, #23292f);
     }
 
-    /* ===== MOBILE ===== */
+    .btn--admin {
+      background: linear-gradient(180deg, #475569, #1f2937);
+    }
+
     @media (max-width: 520px) {
       .content { padding: 14px 16px 22px; }
       .hero-title { font-size: 19px; }
@@ -255,9 +239,9 @@
 
 <body>
   <main class="panel">
-    <!-- HERO -->
+
     <header class="hero">
-      <!-- Forest banner background (SVG, no external dependency) -->
+      <!-- Forest banner background (SVG, self-contained) -->
       <svg class="hero-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
         <defs>
           <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
@@ -271,14 +255,10 @@
         </defs>
 
         <rect width="1600" height="420" fill="url(#sky)"/>
-
-        <!-- Distant hills -->
         <path d="M0 215 C240 155 420 255 640 205 C860 155 1080 225 1320 195 C1460 177 1540 186 1600 205 L1600 0 L0 0 Z"
               fill="#cfe0d2" opacity="0.62"/>
         <path d="M0 255 C220 205 460 305 700 255 C940 205 1140 285 1360 245 C1480 225 1560 231 1600 241 L1600 0 L0 0 Z"
               fill="#b7cbb8" opacity="0.40" filter="url(#soft)"/>
-
-        <!-- Tree line -->
         <path d="M0 335 C180 315 260 355 420 345 C580 335 720 325 860 335 C1040 345 1160 325 1320 335 C1440 345 1520 335 1600 343 L1600 420 L0 420 Z"
               fill="#2b4f2e" opacity="0.80"/>
         <path d="M0 355 C220 343 360 385 540 369 C720 353 840 357 1000 367 C1160 377 1320 345 1600 367 L1600 420 L0 420 Z"
@@ -287,14 +267,8 @@
 
       <div class="hero-top">
         <picture>
-          <!-- Your site logo -->
           <source srcset="https://greentekcorp.com/wp-content/uploads/2024/04/Horizontal.webp" type="image/webp">
-          <!-- Fallback (older browsers) -->
-          <img
-            src="https://greentekcorp.com/wp-content/uploads/2024/01/greentek-logo.png"
-            alt="Greentek"
-            class="brand-logo"
-          />
+          <img src="https://greentekcorp.com/wp-content/uploads/2024/01/greentek-logo.png" alt="Greentek" class="brand-logo" />
         </picture>
       </div>
 
@@ -303,8 +277,8 @@
       </div>
     </header>
 
-    <!-- CONTENT -->
     <div class="content">
+
       <!-- FIELD OPERATIONS -->
       <section class="group">
         <div class="group-head">
@@ -322,7 +296,7 @@
              target="_blank" rel="noopener noreferrer">Truckee Daily Logs</a>
 
           <a class="btn"
-             href="https://script.google.com/macros/s/AKfycbwVLiidFQrQ1JZiEMFH-Ow7EcVJT3ZHjiZlt8sPgFGpYjSDvQuKH3Gz0UacXP7CPZqzKQ/exec"
+             href="https://script.google.com/macros/s/AKfycbwYQz3Ik_oi_hXpiD883UHs_BzjJAEAJZV_URC_ZTL4yw6y8yUtDzNGcS7YKHeaPTdM9A/exec"
              target="_blank" rel="noopener noreferrer">Supervisor Notification App</a>
         </div>
       </section>
@@ -368,6 +342,11 @@
           <a class="btn"
              href="https://docs.google.com/forms/d/e/1FAIpQLScTBqU7EL-qd8cI4yzOAgGNcljSLCfDjb9hTe9YMhHzijEyFw/viewform"
              target="_blank" rel="noopener noreferrer">Field Worker Violation</a>
+
+          <!-- NEW: PG&E External Audit -->
+          <a class="btn btn--alt"
+             href="https://forms.office.com/pages/responsepage.aspx?id=GmauRObsqkG8lnwshaCJQcx4EMIkkHlAt6cPW4N0rF9URTFIVVBXOFVNNjM4MFBFN1RMS1lDU1RDVSQlQCN0PWcu&route=shorturl"
+             target="_blank" rel="noopener noreferrer">PG&amp;E External Audit</a>
         </div>
       </section>
 
@@ -382,9 +361,31 @@
           <a class="btn btn--maintenance"
              href="https://script.google.com/macros/s/AKfycbzx0uGr7nmJ9E_fGKp7qpnCmrJScwzn_m6vazKKvdZbR4uUDEuGh4IQyrPPSZkTTQYw/exec"
              target="_blank" rel="noopener noreferrer">Equipment Maintenance</a>
+
+          <!-- NEW: Monthly Truck Inspections -->
+          <a class="btn btn--maintenance"
+             href="https://docs.google.com/forms/d/e/1FAIpQLScAA84sEPs7xHAgjfKyGcockO..."
+             target="_blank" rel="noopener noreferrer">Monthly Truck Inspections</a>
         </div>
       </section>
+
+      <!-- NEW: ADMIN & FINANCE -->
+      <section class="group">
+        <div class="group-head">
+          <h2>Admin &amp; Finance</h2>
+          <span class="rule"></span>
+        </div>
+
+        <div class="btn-grid">
+          <!-- NEW: Credit Card Expense -->
+          <a class="btn btn--admin"
+             href="https://docs.google.com/forms/d/e/1FAIpQLSdro8GbM87JSGS3QlKdhLKqD2Z8oZ2edxoEzrIT88bEa6yyTw/viewform"
+             target="_blank" rel="noopener noreferrer">Credit Card Expense</a>
+        </div>
+      </section>
+
     </div>
   </main>
 </body>
 </html>
+
